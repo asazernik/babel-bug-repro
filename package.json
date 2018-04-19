@@ -10,6 +10,8 @@
   },
   "scripts": {
     "build": "babel index.js -o index.built.js",
+    "pretest": "babel index.js -o index.built.js",
+    "test": "if [ `grep -l regeneratorRuntime index.built.js` ]; then echo 'used regeneratorRuntime' 1>&2; exit 1; fi"
   },
   "author": "",
   "license": "ISC"
